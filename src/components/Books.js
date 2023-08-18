@@ -17,7 +17,7 @@ const Books = () => {
       title: 'Dune',
       author: 'Frank Herbert',
       percentage: 8,
-      chapter: 'Chapter 3',
+      chapter: 'Chapter 3: "A lesson learned"',
     },
     {
       id: 3,
@@ -28,12 +28,12 @@ const Books = () => {
       chapter: 'Introduction',
     },
   ];
-  // console.log(books);
+
   return (
-    <div>
+    <>
       <BookList books={books} />
       <BookForm />
-    </div>
+    </>
   );
 };
 

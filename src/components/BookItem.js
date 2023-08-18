@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const BookItem = ({ book }) => {
-  // console.log(Array.isArray(book));
-  <div className="containerRender">
-    <div className="renderLeft">
-      <p>{ book.type }</p>
-      <h4>{ book.title }</h4>
-      <p>{ book.author }</p>
-      <ul className="list">
-        <li>Comments</li>
-        <li className="listTwo">Remove</li>
-        <li>Edit</li>
-      </ul>
+const BookItem = ({ book }) => (
+  <>
+    <div className="containerRender">
+      <div className="renderLeft">
+        <p>{book.type}</p>
+        <h3>{book.title}</h3>
+        <p>{book.author}</p>
+        <button type="button">Comment</button>
+        <button type="button">Remove</button>
+        <button type="button">Edit</button>
+      </div>
     </div>
     <div className="renderRight">
       <div>
@@ -28,16 +27,16 @@ const BookItem = ({ book }) => {
         <button type="button">UPDATE PROGRESS</button>
       </div>
     </div>
-  </div>;
-};
-
+  </>
+);
 BookItem.propTypes = {
   book: PropTypes.objectOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      type: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       author: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+      chapter: PropTypes.string.isRequired,
     }),
   ).isRequired,
 };

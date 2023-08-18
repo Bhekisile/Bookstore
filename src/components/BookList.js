@@ -1,15 +1,13 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import BookItem from './BookItem';
 
-const BookList = ({ books }) => {
-  // console.log(books);
+const BookList = ({ books }) => (
   <div>
     {books.map((book) => (
       <BookItem key={book.id} book={book} />
     ))}
-  </div>;
-};
+  </div>
+);
 
 BookList.propTypes = {
   books: PropTypes.arrayOf(
@@ -18,6 +16,8 @@ BookList.propTypes = {
       type: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       author: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+      chapter: PropTypes.string.isRequired,
     }),
   ).isRequired,
 };

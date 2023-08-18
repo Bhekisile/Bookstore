@@ -1,19 +1,20 @@
-import { Route, Routes } from 'react-router-dom';
-import Home from './routes/Home';
-import Categories from './routes/Categories';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Books from './components/Books';
 import Navigation from './components/Navigation';
+import Categories from './routes/Categories';
 import './styles/App.css';
 
-function App() {
-  return (
-    <div className="wrapper">
+const App = () => (
+  <div className="wrapper">
+    <Router>
       <Navigation />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Books />} />
         <Route path="/categories" element={<Categories />} />
       </Routes>
-    </div>
-  );
-}
+    </Router>
+  </div>
+);
 
 export default App;

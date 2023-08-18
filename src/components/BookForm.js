@@ -1,6 +1,6 @@
 import '../styles/BookForm.css';
 
-const BookForm = () => {
+const BookForm = () => (
   <div className="containerCreateBooks">
     <h3>ADD NEW BOOK</h3>
     <form>
@@ -11,9 +11,11 @@ const BookForm = () => {
         <option value="scienceFiction">Science Fiction</option>
         <option value="economy">Economy</option>
       </select>
-      <button className="btn" type="submit">ADD BOOK</button>
+      <button className="btn" type="submit">
+        ADD BOOK
+      </button>
     </form>
-  </div>;
-};
+  </div>
+);
 
 export default BookForm;

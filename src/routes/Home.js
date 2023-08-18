@@ -1,9 +1,7 @@
-import BookItem from '../components/BookItem';
-
 function Home() {
   return (
     <div>
-      <BookItem />
+      <h2>Home Page</h2>
     </div>
   );
 }

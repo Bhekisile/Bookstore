@@ -1,7 +1,7 @@
 function Categories() {
   return (
     <div>
-      This is categories!
+      <h2>Categories Page</h2>
     </div>
   );
 }
