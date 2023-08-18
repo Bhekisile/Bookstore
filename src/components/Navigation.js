@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../styles/Navigation.css';
 
 function Navigation() {
@@ -7,8 +7,8 @@ function Navigation() {
       <h1>Bookstore CMS</h1>
       <div className="nav-side">
         <nav className="nav-link">
-          <NavLink to="/">BOOKS</NavLink>
-          <NavLink to="/categories">CATEGORIES</NavLink>
+          <Link to="/">Home</Link>
+          <Link to="/categories">CATEGORIES</Link>
         </nav>
         <div>icon</div>
       </div>
