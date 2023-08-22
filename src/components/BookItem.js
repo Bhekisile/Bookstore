@@ -6,9 +6,10 @@ import { removeBook } from '../redux/books/booksSlice';
 
 const BookItem = ({ bookItem }) => {
   const {
-    itemId, category, title, author, percentage, chapter,
+    category, title, author, percentage, chapter, itemId,
   } = bookItem;
   const dispatch = useDispatch();
+
   return (
     <div className="containerRender">
       <div className="renderLeft">
@@ -47,7 +48,7 @@ const BookItem = ({ bookItem }) => {
 BookItem.propTypes = {
   bookItem: PropTypes.objectOf(
     PropTypes.shape({
-      itemId: PropTypes.number.isRequired,
+      itemId: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       author: PropTypes.string.isRequired,
       category: PropTypes.string.isRequired,
