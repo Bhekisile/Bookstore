@@ -1,15 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
-import Books from '../../components/Books';
+// import Books from '../../components/Books';
 
-const initialState = {
-  Books,
-  id: '',
-  type: '',
-  title: '',
-  author: '',
-  percentage: '',
-  chapter: '',
-};
+const initialState = [
+  {
+    item_id: 1,
+    title: 'The Great Gatsby',
+    author: 'John Smith',
+    category: 'Fiction',
+  },
+  {
+    item_id: 2,
+    title: 'Anna Karenina',
+    author: 'Leo Tolstoy',
+    category: 'Fiction',
+  },
+  {
+    item_id: 3,
+    title: 'The Selfish Gene',
+    author: 'Richard Dawkins',
+    category: 'Nonfiction',
+  },
+];
 
 const booksSlice = createSlice({
   name: 'book',

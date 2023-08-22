@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/BookItem.css';
 
 const BookItem = ({ book }) => (
   <>
@@ -12,19 +13,19 @@ const BookItem = ({ book }) => (
         <button type="button">Remove</button>
         <button type="button">Edit</button>
       </div>
-    </div>
-    <div className="renderRight">
-      <div>
-        <p>Progress</p>
+      <div className="renderRight">
         <div>
-          <h4>{book.percentage}</h4>
-          <h4>Completed</h4>
+          <p>Progress</p>
+          <div>
+            <h4>{book.percentage}</h4>
+            <h4>Completed</h4>
+          </div>
         </div>
-      </div>
-      <div>
-        <p>Current Chapter</p>
-        <p>{book.chapter}</p>
-        <button type="button">UPDATE PROGRESS</button>
+        <div>
+          <p>Current Chapter</p>
+          <p>{book.chapter}</p>
+          <button type="button">UPDATE PROGRESS</button>
+        </div>
       </div>
     </div>
   </>
