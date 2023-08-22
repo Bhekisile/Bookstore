@@ -1,25 +1,16 @@
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import BookItem from './BookItem';
 
-const BookList = ({ books }) => (
-  <div>
-    {books.map((book) => (
-      <BookItem key={book.id} book={book} />
-    ))}
-  </div>
-);
+const BookList = () => {
+  const { books } = useSelector((store) => store.books);
 
-BookList.propTypes = {
-  books: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      type: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-      percentage: PropTypes.number.isRequired,
-      chapter: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+  return (
+    <div>
+      {books.map((bookItem) => (
+        <BookItem key={bookItem.itemId} bookItem={bookItem} />
+      ))}
+    </div>
+  );
 };
 
 export default BookList;

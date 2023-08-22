@@ -1,8 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import Categories from '../../routes/Categories';
 
 const initialState = {
-  Categories,
   status: 'Under construction',
 };
 
