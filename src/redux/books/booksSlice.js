@@ -1,42 +1,45 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice } from '@reduxjs/toolkit';
 
-const apiUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/POkfoISJQ9RXQgYIesxH/books';
-
-export const getBookItems = createAsyncThunk(
-  'books/getBookItems', async (_, thunkAPI) => {
-    try {
-      console.log(thunkAPI);
-      // console.log(thunkAPI.getState());
-      const resp = await axios.get(apiUrl);
-      return resp.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue('something went wrong');
-    }
-  },
-);
+const initialState = {
+  books: [
+    {
+      itemId: 1,
+      title: 'The Great Gatsby',
+      author: 'John Smith',
+      category: 'Fiction',
+      percentage: 64,
+      chapter: 'Chapter 17',
+    },
+    {
+      itemId: 2,
+      title: 'Anna Karenina',
+      author: 'Leo Tolstoy',
+      category: 'Fiction',
+      percentage: 8,
+      chapter: 'Chapter 3: "A lesson learned"',
+    },
+    {
+      itemId: 3,
+      title: 'The Selfish Gene',
+      author: 'Richard Dawkins',
+      category: 'Nonfiction',
+      percentage: 0,
+      chapter: 'Introduction',
+    },
+  ],
+};
 
 const booksSlice = createSlice({
   name: 'books',
-  initialState: {
-    books: [],
-    isLoading: false,
-    error: null,
-  },
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(getBookItems.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(getBookItems.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.users = action.payload;
-      })
-      .addCase(getBookItems.rejected, (state) => {
-        state.isLoading = false;
-        state.error = true;
-      });
+  initialState,
+  reducers: {
+    addBook: (state, action) => {
+      state.books.push(action.payload);
+    },
+    removeBook: (state, action) => {
+      const bookId = action.payload;
+      state.books = state.books.filter((book) => book.itemId !== bookId);
+    },
   },
 });
 
