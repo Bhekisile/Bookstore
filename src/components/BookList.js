@@ -1,11 +1,21 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import BookItem from './BookItem';
+import { getBookItems } from '../redux/books/booksSlice';
 
 const BookList = () => {
-  const books = useSelector((state) => state.books);
+  const { books, isLoading, error } = useSelector((state) => state.books);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getBookItems());
+  }, [dispatch]);
+
   return (
     <div>
-      {books.books.map((bookItem) => (
+      {isLoading && <div>Loading ........</div>}
+      {error && <div>Could not fetch data.</div>}
+      {books.map((bookItem) => (
         <BookItem key={bookItem.itemId} bookItem={bookItem} />
       ))}
     </div>
