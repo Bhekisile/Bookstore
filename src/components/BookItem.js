@@ -46,7 +46,7 @@ const BookItem = ({ bookItem }) => {
 };
 
 BookItem.propTypes = {
-  bookItem: PropTypes.objectOf(
+  bookItem: PropTypes.arrayOf(
     PropTypes.shape({
       itemId: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,

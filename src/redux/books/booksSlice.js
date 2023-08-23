@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = [
   {
-    itemId: '1',
+    itemId: 1,
     title: 'The Great Gatsby',
     author: 'John Smith',
     category: 'Fiction',
@@ -10,7 +10,7 @@ const initialState = [
     chapter: 'Chapter 17',
   },
   {
-    itemId: '2',
+    itemId: 2,
     title: 'Anna Karenina',
     author: 'Leo Tolstoy',
     category: 'Fiction',
@@ -18,7 +18,7 @@ const initialState = [
     chapter: 'Chapter 3: "A lesson learned"',
   },
   {
-    itemId: '3',
+    itemId: 3,
     title: 'The Selfish Gene',
     author: 'Richard Dawkins',
     category: 'Nonfiction',
@@ -40,6 +40,7 @@ const booksSlice = createSlice({
     },
   },
 });
+
 export const {
   addBook, removeBook,
 } = booksSlice.actions;
