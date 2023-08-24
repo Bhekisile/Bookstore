@@ -1,69 +1,76 @@
-import '../styles/BookForm.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
-// import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { nanoid } from 'nanoid';
+import { useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/booksSlice';
+import '../styles/BookForm.css';
 
-const BookForm = () => {
+export default function AddBooks() {
   const dispatch = useDispatch();
-  const books = useSelector((state) => state.books);
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
+  const initialState = {
+    title: '',
+    author: '',
+    category: '',
+  };
+  const [bookData, setBookData] = useState(initialState);
 
-  const handleAddBook = (title, author) => {
-    const newBook = {
-      itemId: `${books.length + 1}`,
-      title,
-      author,
-      category: 'uncategorized',
-    };
-    dispatch(addBook(newBook));
+  const inputChangeHandler = (e) => {
+    const { name, value } = e.target;
+    setBookData((previousData) => ({
+      ...previousData,
+      [name]: value,
+    }));
   };
 
-  function handleClick(e) {
+  const handleAddBook = (e) => {
     e.preventDefault();
-    if (!title || !author) return;
-    handleAddBook(title.trim(), author.trim());
-    setTitle('');
-    setAuthor('');
-  }
+
+    const { title, author, category } = bookData;
+
+    if (title && author && category) {
+      const newBook = {
+        item_id: nanoid(),
+        ...bookData,
+      };
+
+      dispatch(addBook(newBook));
+      setBookData(initialState);
+    }
+  };
 
   return (
     <div className="containerCreateBooks">
-      <h3>ADD NEW BOOK</h3>
       <form>
-        <input
-          type="text"
-          placeholder="Book Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Book Author"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-        />
-        <select
-          className="select"
-          value="action"
-        >
-          <option value="action">Action</option>
-          <option value="scienceFiction">Science Fiction</option>
-          <option value="economy">Economy</option>
-        </select>
-        <button
-          className="btn"
-          type="submit"
-          onClick={
-            handleClick
-          }
-        >
-          ADD BOOK
-        </button>
+        <h3>ADD NEW BOOK</h3>
+        <div>
+          <input
+            type="text"
+            name="title"
+            placeholder="Title"
+            value={bookData.title}
+            onChange={inputChangeHandler}
+          />
+          <input
+            type="text"
+            name="author"
+            placeholder="Author"
+            value={bookData.author}
+            onChange={inputChangeHandler}
+          />
+          <select
+            name="category"
+            value={bookData.category}
+            onChange={inputChangeHandler}
+          >
+            <option value="">Select Category</option>
+            <option value="Action">Action</option>
+            <option value="Science/Fiction">Science/Fiction</option>
+            <option value="Economy">Economy</option>
+          </select>
+          <button type="button" className="btn" onClick={handleAddBook}>
+            ADD BOOK
+          </button>
+        </div>
       </form>
     </div>
   );
-};
-
-export default BookForm;
+}
