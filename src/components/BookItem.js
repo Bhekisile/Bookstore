@@ -17,31 +17,33 @@ const BookItem = () => {
     return (
       <div key={itemId} className="containerRender">
         <div className="renderLeft">
-          <p>{category}</p>
-          <h3>{title}</h3>
-          <p>{author}</p>
-          <button type="button">Comment</button>
-          <button type="button" onClick={() => dispatch(deleteBook(itemId))}>
-            Remove
-          </button>
-          <button type="button">Edit</button>
+          <p className="category">{category}</p>
+          <h2 className="title">{title}</h2>
+          <p className="author">{author}</p>
+          <div className="buttons">
+            <button className="clear-btn first" type="button">Comment</button>
+            <button className="clear-btn side" type="button" onClick={() => dispatch(deleteBook(itemId))}>
+              Remove
+            </button>
+            <button className="clear-btn third" type="button">Edit</button>
+          </div>
         </div>
         <div className="renderRight">
-          <div>
-            <p>
-              <progress value="40" min="0" max="100">
-                40%
-              </progress>
+          <div className="flex-left">
+            <p className="progress-bar">
+              {/* <progress value="68" min="0" max="100">
+                68%
+              </progress> */}
             </p>
             <div>
-              <p>40%</p>
-              <p>Completed</p>
+              <p className="percent">68%</p>
+              <p className="completed">Completed</p>
             </div>
           </div>
-          <div>
-            <p>Current Chapter</p>
-            <p>Chapter 12</p>
-            <button type="button">UPDATE PROGRESS</button>
+          <div className="flex-right">
+            <p className="current">Current Chapter</p>
+            <p className="chapter">Chapter 12</p>
+            <button className="btn-chapter" type="button">UPDATE PROGRESS</button>
           </div>
         </div>
       </div>
