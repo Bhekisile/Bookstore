@@ -11,6 +11,12 @@ const BookItem = () => {
     dispatch(getBookItems());
   }, [dispatch]);
 
+  const style = {
+    visibility: 'hidden',
+    height: 0,
+    width: 0,
+  };
+
   const renderBook = (itemId, book) => {
     const { category, title, author } = book;
 
@@ -21,21 +27,29 @@ const BookItem = () => {
           <h2 className="title">{title}</h2>
           <p className="author">{author}</p>
           <div className="buttons">
-            <button className="clear-btn first" type="button">Comment</button>
-            <button className="clear-btn side" type="button" onClick={() => dispatch(deleteBook(itemId))}>
+            <button className="clear-btn first" type="button">
+              Comment
+            </button>
+            <button
+              className="clear-btn side"
+              type="button"
+              onClick={() => dispatch(deleteBook(itemId))}
+            >
               Remove
             </button>
-            <button className="clear-btn third" type="button">Edit</button>
+            <button className="clear-btn third" type="button">
+              Edit
+            </button>
           </div>
         </div>
         <div className="renderRight">
           <div className="flex-left">
-            <p className="progress-bar">
-              {/* <progress value="68" min="0" max="100">
-                68%
-              </progress> */}
-            </p>
-            <div>
+            <div className="progress-bar">
+              <progress value="68" min="0" max="100" style={style}>
+                75%
+              </progress>
+            </div>
+            <div className="progress">
               <p className="percent">68%</p>
               <p className="completed">Completed</p>
             </div>
@@ -43,7 +57,9 @@ const BookItem = () => {
           <div className="flex-right">
             <p className="current">Current Chapter</p>
             <p className="chapter">Chapter 12</p>
-            <button className="btn-chapter" type="button">UPDATE PROGRESS</button>
+            <button className="btn-chapter" type="button">
+              UPDATE PROGRESS
+            </button>
           </div>
         </div>
       </div>

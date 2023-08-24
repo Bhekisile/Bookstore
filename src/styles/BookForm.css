@@ -8,7 +8,7 @@
 }
 
 form {
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
@@ -22,7 +22,7 @@ form {
 }
 
 h3 {
-  width: 10.875rem;
+  width: 11rem;
   height: 1.5rem;
   margin: 1.813rem 32.75rem 1.188rem 0;
   font-size: 1.25rem;

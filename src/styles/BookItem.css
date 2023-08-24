@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .containerRender {
   display: flex;
   justify-content: space-between;
@@ -6,12 +13,8 @@
   margin: 20px auto;
   background-color: #fff;
   border-radius: 5px;
-  font-family: Montserrat;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
 }
 
 .renderLeft {
@@ -20,10 +23,10 @@
 }
 
 .renderRight {
-  width: 55%;
-  padding: 20px;
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
 }
 
 .category {
@@ -40,7 +43,7 @@
   width: 12.313rem;
   height: 1.813rem;
   margin: 0.188rem 20.188rem 0 0;
-  font-family: RobotoSlab;
+  font-family: 'Roboto Slab', serif;
   font-size: 1.375rem;
   font-weight: bold;
   letter-spacing: -0.2px;
@@ -76,12 +79,11 @@
 }
 
 .flex-left {
-  border-right: 3px solid #ccc;
-  width: 200px;
-  height: 80px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin: auto 0;
+  gap: 1.4rem;
+  border-right: 3px solid #e8e8e8;
 }
 
 .flex-right {
@@ -122,7 +124,7 @@
   height: 1.125rem;
   margin: 0.063rem 3.625rem 0 3.688rem;
   opacity: 0.5;
-  font-family: RobotoSlab;
+  font-family: 'Roboto Slab', serif;
   font-size: 0.813rem;
   font-weight: 300;
 }
@@ -131,7 +133,7 @@
   width: 4.688rem;
   height: 1.313rem;
   margin: 0.438rem 6.813rem 0.25rem 3.688rem;
-  font-family: RobotoSlab;
+  font-family: 'Roboto Slab', serif;
   font-size: 1rem;
   font-weight: 300;
   letter-spacing: -0.4px;
@@ -146,6 +148,7 @@
   border-radius: 3px;
   background-color: #0290ff;
   border: none;
+  color: #fff;
 }
 
 .percent {
@@ -164,4 +167,3 @@
   font-size: 0.875rem;
   color: var(--black-two);
 }
-
