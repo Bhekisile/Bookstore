@@ -1,61 +1,70 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getBookItems, deleteBook } from '../redux/books/booksSlice';
 import '../styles/BookItem.css';
-import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/booksSlice';
 
-const BookItem = ({ bookItem }) => {
-  const {
-    category, title, author, percentage, chapter, itemId,
-  } = bookItem;
+const BookItem = () => {
   const dispatch = useDispatch();
+  const { books, isLoading, error } = useSelector((state) => state.books);
 
-  return (
-    <div className="containerRender">
-      <div className="renderLeft">
-        <p>{category}</p>
-        <h3>{title}</h3>
-        <p>{author}</p>
-        <button type="button">Comment</button>
-        <button
-          type="button"
-          onClick={() => {
-            dispatch(removeBook(itemId));
-          }}
-        >
-          Remove
-        </button>
-        <button type="button">Edit</button>
-      </div>
-      <div className="renderRight">
-        <div>
-          <p>Progress</p>
+  useEffect(() => {
+    dispatch(getBookItems());
+  }, [dispatch]);
+
+  const renderBook = (itemId, book) => {
+    const { category, title, author } = book;
+
+    return (
+      <div key={itemId} className="containerRender">
+        <div className="renderLeft">
+          <p>{category}</p>
+          <h3>{title}</h3>
+          <p>{author}</p>
+          <button type="button">Comment</button>
+          <button type="button" onClick={() => dispatch(deleteBook(itemId))}>
+            Remove
+          </button>
+          <button type="button">Edit</button>
+        </div>
+        <div className="renderRight">
           <div>
-            <h4>{percentage}</h4>
-            <h4>Completed</h4>
+            <p>
+              <progress value="40" min="0" max="100">
+                40%
+              </progress>
+            </p>
+            <div>
+              <p>40%</p>
+              <p>Completed</p>
+            </div>
+          </div>
+          <div>
+            <p>Current Chapter</p>
+            <p>Chapter 12</p>
+            <button type="button">UPDATE PROGRESS</button>
           </div>
         </div>
-        <div>
-          <p>Current Chapter</p>
-          <p>{chapter}</p>
-          <button type="button">UPDATE PROGRESS</button>
-        </div>
       </div>
+    );
+  };
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Could not fetch data.</p>;
+  }
+
+  if (!books) {
+    return null;
+  }
+
+  return (
+    <div>
+      {Object.entries(books).map(([itemId, book]) => renderBook(itemId, book[0]))}
     </div>
   );
-};
-
-BookItem.propTypes = {
-  bookItem: PropTypes.arrayOf(
-    PropTypes.shape({
-      itemId: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-      category: PropTypes.string.isRequired,
-      percentage: PropTypes.number.isRequired,
-      chapter: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
 };
 
 export default BookItem;
