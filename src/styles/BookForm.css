@@ -40,10 +40,22 @@ h3 {
   color: #fff;
 }
 
-input,
-select[option] {
+input {
+  width: 4.75rem;
   height: 1.188rem;
+  border-radius: 4px;
+  opacity: 0.8;
   font-size: 1rem;
+  border: solid 1px #ccc;
+  padding-left: 1.063rem;
+}
+
+select {
+  width: 14.813rem;
+  height: 2.588rem;
+  opacity: 0.5;
+  padding: 0.375rem 0.938rem 0.563rem 1rem;
+  border-radius: 4px;
   border: solid 1px #ccc;
 }
 

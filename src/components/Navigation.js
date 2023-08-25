@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 import '../styles/Navigation.css';
-// import Testing from '../icons';
-// import UilUser from '@iconscout/react-unicons';
 import { UilUser } from '@iconscout/react-unicons';
 
 function Navigation() {

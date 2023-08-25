@@ -4,7 +4,7 @@
   display: flex;
   gap: 40px;
   align-items: center;
-  padding: 0 50px;
+  padding: 0 70px;
   margin-bottom: 50px;
   background-color: #fff;
 }
@@ -12,8 +12,9 @@
 .nav-side {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 580px;
-  width: 40%;
+  width: 100%;
 }
 
 a {

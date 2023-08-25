@@ -1,6 +1,6 @@
 .wrapper {
-  width: 90%;
-  margin: 30px auto;
+  width: 100%;
+  margin: 0 auto;
   padding-bottom: 50px;
   box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
 }
