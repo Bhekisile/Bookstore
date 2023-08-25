@@ -39,9 +39,10 @@ export default function AddBooks() {
 
   return (
     <div className="containerCreateBooks">
+      <hr className="line" />
       <form>
         <h3>ADD NEW BOOK</h3>
-        <div>
+        <div className="book-form">
           <input
             type="text"
             name="title"
@@ -66,7 +67,7 @@ export default function AddBooks() {
             <option value="Science/Fiction">Science/Fiction</option>
             <option value="Economy">Economy</option>
           </select>
-          <button type="button" className="btn" onClick={handleAddBook}>
+          <button type="button" className="add-btn" onClick={handleAddBook}>
             ADD BOOK
           </button>
         </div>

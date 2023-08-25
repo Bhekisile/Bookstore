@@ -1,21 +1,44 @@
 .nav-bar {
-  height: 80px;
+  height: 100px;
   width: 100%;
   display: flex;
-  gap: 30px;
+  justify-content: space-between;
   align-items: center;
-  padding: 0 50px;
-  margin-bottom: 20px;
+  padding: 0 70px;
+  margin-bottom: 50px;
+  background-color: #fff;
 }
 
 .nav-side {
   display: flex;
   justify-content: space-between;
-  gap: 620px;
+  align-items: center;
+  width: 75%;
+}
+
+a {
+  text-decoration: none;
 }
 
 .nav-link {
   display: flex;
   justify-content: space-between;
   gap: 30px;
+}
+
+.nav-container {
+  display: block;
+}
+
+nav svg {
+  width: 40px;
+  color: black;
+}
+
+.blue {
+  color: #0290ff;
+}
+
+h1 {
+  font-weight: 900;
 }
